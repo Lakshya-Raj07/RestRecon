@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom'
+
 function Navbar({ status }) {
+    const navigate = useNavigate()
     return (
         <nav style={{
             display: 'flex',
@@ -12,7 +15,7 @@ function Navbar({ status }) {
             zIndex: 10
         }}>
             {/* Logo */}
-            <div style={{ color: '#00FF41', fontSize: '16px', fontWeight: 700, letterSpacing: '2px', fontFamily: 'monospace' }}>
+            <div onClick={() => navigate('/')} style={{ color: '#00FF41', fontSize: '16px', fontWeight: 700, letterSpacing: '2px', fontFamily: 'monospace', cursor: 'pointer' }}>
                 REST<span style={{ color: '#fff' }}>Recon</span>
             </div>
 
