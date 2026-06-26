@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Navbar from '../components/Navbar'
 
 function LandingPage() {
   const canvasRef = useRef(null)
@@ -39,15 +40,7 @@ function LandingPage() {
       <canvas ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, opacity: 0.15, zIndex: 0 }} />
 
       {/* Navbar */}
-      <nav style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.25rem 2rem', borderBottom: '1px solid #1A1A2E' }}>
-        <div style={{ color: '#00FF41', fontSize: '16px', fontWeight: 700, letterSpacing: '2px', fontFamily: 'monospace' }}>
-          REST<span style={{ color: '#fff' }}>Recon</span>
-        </div>
-        <div style={{ display: 'flex', gap: '1.5rem' }}>
-          <span style={{ color: '#555566', fontSize: '12px', letterSpacing: '1px', cursor: 'pointer', fontFamily: 'monospace' }}>DOCS</span>
-          <span style={{ color: '#555566', fontSize: '12px', letterSpacing: '1px', cursor: 'pointer', fontFamily: 'monospace' }}>ABOUT</span>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero */}
       <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 65px)', textAlign: 'center', padding: '2rem' }}>
