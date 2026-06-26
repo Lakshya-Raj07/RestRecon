@@ -86,7 +86,7 @@ function DashboardPage() {
     await addLine('', 'info', 100)
 
     try {
-      const res = await fetch('http://localhost:5000/api/scan', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/scan`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -160,7 +160,7 @@ function DashboardPage() {
     } catch (err) {
       await addLine('', 'info', 100)
       await addLine(`[✗] ERROR: ${err.message}`, 'vuln', 200)
-      await addLine('[*] Make sure backend is running on http://localhost:5000', 'warn', 300)
+      await addLine(`[*] Make sure backend is running on ${import.meta.env.VITE_API_URL}`, 'warn', 300)
       setScanning(false)
     }
   }
