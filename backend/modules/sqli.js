@@ -93,6 +93,16 @@ async function checkSQLi(target, method, headers) {
                 })
             }
 
+            // WAF detected — request blocked, not vulnerable
+            if (res.status === 403) {
+                return {
+                    module: 'SQL INJECTION',
+                    severity: 'PASSED',
+                    vulnerable: false,
+                    detail: 'WAF detected — request blocked with 403 Forbidden. SQL injection mitigated.'
+                }
+            }
+
             const body = JSON.stringify(res.data).toLowerCase()
             const found = errorKeywords.find(kw => body.includes(kw))
 
@@ -102,16 +112,6 @@ async function checkSQLi(target, method, headers) {
                     severity: 'HIGH',
                     vulnerable: true,
                     detail: `SQL error keyword "${found}" found in response when injecting payload: ${payload}`
-                }
-            }
-
-            // WAF detected — request blocked, not vulnerable
-            if (res.status === 403) {
-                return {
-                    module: 'SQL INJECTION',
-                    severity: 'PASSED',
-                    vulnerable: false,
-                    detail: 'WAF detected — request blocked with 403 Forbidden. SQL injection mitigated.'
                 }
             }
 
