@@ -29,6 +29,31 @@ RestRecon is a full-stack security tool that fires real attack payloads against 
 
 ---
 
+
+## 📸 Screenshots
+
+### Landing Page
+![Landing](screenshots/landingpage.png)
+
+### Live Scan — SQL Injection Detection
+![SQLi Scan](screenshots/scan-sqli.png)
+
+### Live Scan — IDOR Detection
+![IDOR Scan](screenshots/scan-iodr.png)
+
+### Live Scan — Sensitive Data Detection
+![AWS Key detection scan](screenshots/scan-aws-auth.png)
+
+### Report — SQL Injection
+![SQLi Report](screenshots/report-sqli.png)
+
+### Report — IDOR Critical
+![IDOR Report](screenshots/report-iodr.png)
+
+### Report — AWS Key Exposed
+![AWS Report](screenshots/report-aws-auth.png)
+
+---
 ## 🧱 Tech Stack
 
 **Frontend**
