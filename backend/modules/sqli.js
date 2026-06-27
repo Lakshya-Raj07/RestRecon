@@ -105,6 +105,16 @@ async function checkSQLi(target, method, headers) {
                 }
             }
 
+            // WAF detected — request blocked, not vulnerable
+            if (res.status === 403) {
+                return {
+                    module: 'SQL INJECTION',
+                    severity: 'PASSED',
+                    vulnerable: false,
+                    detail: 'WAF detected — request blocked with 403 Forbidden. SQL injection mitigated.'
+                }
+            }
+
             if (res.status === 500) {
                 return {
                     module: 'SQL INJECTION',
