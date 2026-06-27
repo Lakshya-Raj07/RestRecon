@@ -2,19 +2,18 @@ const axios = require('axios')
 
 async function checkRateLimit(target, method, headers) {
     try {
-        // 50 concurrent requests Promise.all() se
-        const requests = Array(50).fill(null).map(() =>
+        // 20 requests sufficient hain 429 detect karne ke liye
+        const requests = Array(20).fill(null).map(() =>
             axios({
                 method: method || 'GET',
                 url: target,
                 headers,
-                validateStatus: () => true
+                validateStatus: () => true,
+                timeout: 5000
             })
         )
 
         const responses = await Promise.all(requests)
-
-        // Koi bhi 429 aaya?
         const limited = responses.some(r => r.status === 429)
 
         if (limited) {
@@ -30,7 +29,7 @@ async function checkRateLimit(target, method, headers) {
             module: 'RATE LIMITING',
             severity: 'HIGH',
             vulnerable: true,
-            detail: '50 concurrent async requests fired via Promise.all() — no 429 received. Rate limiting absent. API vulnerable to brute force and DoS attacks.'
+            detail: '20 concurrent async requests fired — no 429 received. Rate limiting absent.'
         }
 
     } catch (err) {

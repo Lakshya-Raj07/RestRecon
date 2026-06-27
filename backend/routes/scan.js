@@ -10,7 +10,9 @@ const checkRateLimit = require('../modules/rateLimit')
 
 router.post('/', async (req, res) => {
     const { baseUrl, endpoint, method, headers, tokenA, tokenB } = req.body
-
+    if (!baseUrl || !endpoint) {
+        return res.status(400).json({ error: 'baseUrl and endpoint required' })
+    }
     const target = `${baseUrl}${endpoint}`
 
     try {

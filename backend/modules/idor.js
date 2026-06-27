@@ -30,7 +30,7 @@ async function checkIDOR(target, headers, tokenA, tokenB) {
         const dataA = JSON.stringify(resA.data)
         const dataB = JSON.stringify(resB.data)
 
-        if (dataA === dataB && resB.status === 200) {
+        if (resB.status === 200 && dataA === dataB && dataA !== '{}' && dataA !== 'null') {
             return {
                 module: 'BOLA / IDOR',
                 severity: 'CRITICAL',

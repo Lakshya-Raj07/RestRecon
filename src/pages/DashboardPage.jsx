@@ -294,7 +294,7 @@ function DashboardPage() {
 
         {/* RIGHT — Terminal */}
         <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ fontSize: '10px', color: '#555566', letterSpacing: '2px', marginBottom: '1rem' }}>LIVE EXECUTION CONSOLE</div>
+          <div style={{ fontSize: '10px', color: '#555566', letterSpacing: '2px', marginBottom: '1rem' }}>LIVE EXECUTION CONSOLE.....⚠ Only test APIs you own or have explicit permission to test.</div>
           <div ref={terminalRef} style={{ background: '#080710', border: '1px solid #1A1A2E', borderRadius: '2px', flex: 1, padding: '1rem', overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
             {/* Terminal Header */}
             <div style={{ display: 'flex', gap: '6px', marginBottom: '1rem', alignItems: 'center' }}>
