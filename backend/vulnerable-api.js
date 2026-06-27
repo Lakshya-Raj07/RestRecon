@@ -16,7 +16,6 @@ app.get('/user/:id', (req, res) => {
 })
 
 // VULNERABLE — SQLi simulation
-// VULNERABLE — SQLi simulation
 app.get('/search', (req, res) => {
     const q = req.query.input || req.query.q || req.query.search || ''
     if (q.includes("'") || q.toLowerCase().includes('or') || q.includes('--') || q.includes('union')) {
