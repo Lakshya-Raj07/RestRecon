@@ -44,4 +44,37 @@ RestRecon is a full-stack security tool that fires real attack payloads against 
 
 ---
 
-## 📁 Project Structure
+---
+
+## ⚙️ Setup & Run
+
+**Frontend**
+```bash
+npm install
+npm run dev
+```
+
+**Backend**
+```bash
+cd backend
+npm install
+node index.js
+```
+
+Frontend runs on `http://localhost:5173`  
+Backend runs on `http://localhost:5000`
+
+---
+
+## ⚠️ Disclaimer
+
+RestRecon is built for **educational purposes and authorized security testing only**.  
+Only test APIs you own or have explicit permission to test.  
+Unauthorized scanning is illegal under IT Act Section 43 & 66.
+
+---
+
+## 👨‍💻 Author
+
+**Lakshya Raj** — B.Tech ITNS, NSUT Delhi  
+[GitHub](https://github.com/Lakshya-Raj07) · [Portfolio](https://lakshyaraj.vercel.app)
